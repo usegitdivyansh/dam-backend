@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/temp_input.csv
+data/temp_output.csv
+data/fresh_predictions.csv

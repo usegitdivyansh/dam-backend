@@ -1,0 +1,22 @@
+{
+  "feature_list": [
+    "price_lag_192",
+    "price_lag_96",
+    "weekday",
+    "DAM_MCP_lag_4",
+    "hour_sin",
+    "hour",
+    "hour_cos",
+    "GDAM_MCP_lag_1",
+    "GDAM_MCP_lag_4",
+    "GDAM_MCP_lag_96",
+    "RTM_MCP_lag_1",
+    "RTM_MCP_lag_4",
+    "RTM_MCP_lag_96",
+    "DAM_GDAM_spread",
+    "RTM_DAM_spread"
+  ],
+  "target_column": "dam_price",
+  "market_name": "DAM",
+  "datetime_column": "datetime"
+}

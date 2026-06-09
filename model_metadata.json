@@ -1,0 +1,92 @@
+{
+  "training_timestamp": "2026-06-01T15:57:44.721509+00:00",
+  "model_type": {
+    "regime_classifier": "Pipeline",
+    "regime_low": "LGBMRegressor",
+    "regime_mid": "LGBMRegressor",
+    "regime_high": "LGBMRegressor",
+    "p50": "LGBMRegressor"
+  },
+  "selected_hyperparameters": {
+    "gbm_backend": "lightgbm",
+    "regime_strategy": "rolling_quantile",
+    "regime_classes": 3,
+    "target_transform": "none",
+    "weight_quantile": 0.9,
+    "weight_multiplier": 3.0,
+    "regime_prob_threshold": 0.3
+  },
+  "library_versions": {
+    "scikit_learn": "1.8.0",
+    "lightgbm": "4.6.0"
+  },
+  "feature_config": {
+    "target_market": "DAM",
+    "datetime_col": "datetime",
+    "target_col": "dam_price",
+    "market_columns": {
+      "DAM": "dam_price",
+      "GDAM": "gdam_price",
+      "RTM": "rtm_price"
+    },
+    "lead_steps": 96,
+    "target_lags": [
+      96,
+      192
+    ],
+    "rolling_windows": [
+      96
+    ],
+    "cross_market_lags": [
+      96,
+      192
+    ],
+    "renewable_cols": [],
+    "buy_col": "buy_mw",
+    "sell_col": "sell_mw",
+    "solar_col": "solar",
+    "weather_cols": [
+      "temp",
+      "solar",
+      "cloud",
+      "wind",
+      "humidity",
+      "rain"
+    ],
+    "auction_cutoff_hour": 12,
+    "auction_cutoff_minute": 0,
+    "target_transform": "none",
+    "regime_prob_threshold": 0.3,
+    "regime_bidirectional": true,
+    "regime_classes": 3
+  },
+  "required_raw_columns": [
+    "datetime",
+    "dam_price",
+    "buy_mw",
+    "sell_mw",
+    "solar",
+    "temp",
+    "cloud",
+    "wind",
+    "humidity",
+    "rain",
+    "gdam_price",
+    "rtm_price"
+  ],
+  "model_files": {
+    "regime_classifier": "regime_classifier.joblib",
+    "regime_low": "regime_low_model.joblib",
+    "regime_mid": "regime_mid_model.joblib",
+    "regime_high": "regime_high_model.joblib",
+    "p50": "p50_model.joblib"
+  },
+  "feature_count": 15,
+  "selected_deploy_model": {
+    "model": "Regime",
+    "criterion": "lowest holdout MAE from cross-market feature experiment",
+    "mae": 535.4538577480681,
+    "smape": 17.065142384320346,
+    "r2": 0.8472943855297501
+  }
+}
